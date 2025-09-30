@@ -81,11 +81,19 @@ website tra cứu về phác đồ điều trị ung thư
       <th>Tên phác đồ</th>
       <th>Thành phần</th>
       <th>Nguy cơ giảm bạch cầu</th>
+      <th>Nguy cơ nôn</th>
     </tr>
     <tr>
       <td>AC</td>
       <td>Doxorubicin + Cyclophosphamide</td>
-      <td onclick="showProphylaxis('Trung bình')">Trung bình</td>
+      <td onclick="showPopup('neutro','Trung bình')">Trung bình</td>
+      <td onclick="showPopup('nausea','Cao')">Cao</td>
+    </tr>
+    <tr>
+      <td>Phác đồ X</td>
+      <td>Thuốc A + Thuốc B</td>
+      <td onclick="showPopup('neutro','Cao')">Cao</td>
+      <td onclick="showPopup('nausea','Thấp')">Thấp</td>
     </tr>
   </table>
 
@@ -93,21 +101,39 @@ website tra cứu về phác đồ điều trị ung thư
   <div id="popup" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closePopup()">&times;</span>
-      <h2>Thuốc dự phòng</h2>
+      <h2 id="popup-title"></h2>
       <p id="popup-text"></p>
     </div>
   </div>
 
   <script>
-    function showProphylaxis(risk) {
+    function showPopup(type, risk) {
+      let title = "";
       let message = "";
-      if (risk === "Trung bình") {
-        message = "Khuyến cáo: Cân nhắc dùng G-CSF (Filgrastim, Pegfilgrastim) nếu bệnh nhân có thêm yếu tố nguy cơ.";
-      } else if (risk === "Cao") {
-        message = "Khuyến cáo: Sử dụng G-CSF dự phòng (Filgrastim, Pegfilgrastim).";
-      } else {
-        message = "Nguy cơ thấp: thường không cần dự phòng bằng thuốc.";
+
+      if (type === "neutro") {
+        title = "Thuốc dự phòng giảm bạch cầu";
+        if (risk === "Trung bình") {
+          message = "Khuyến cáo: Cân nhắc dùng G-CSF (Filgrastim, Pegfilgrastim) nếu bệnh nhân có thêm yếu tố nguy cơ.";
+        } else if (risk === "Cao") {
+          message = "Khuyến cáo: Sử dụng G-CSF dự phòng (Filgrastim, Pegfilgrastim).";
+        } else {
+          message = "Nguy cơ thấp: thường không cần dự phòng bằng thuốc.";
+        }
       }
+
+      if (type === "nausea") {
+        title = "Thuốc dự phòng nôn";
+        if (risk === "Cao") {
+          message = "Khuyến cáo: Phối hợp 5-HT3 antagonist (Ondansetron/Granisetron) + Dexamethason + NK1 antagonist (Aprepitant).";
+        } else if (risk === "Trung bình") {
+          message = "Khuyến cáo: 5-HT3 antagonist (Ondansetron/Granisetron) + Dexamethason.";
+        } else {
+          message = "Nguy cơ thấp: thường chỉ cần dùng thuốc chống nôn khi cần thiết.";
+        }
+      }
+
+      document.getElementById("popup-title").innerText = title;
       document.getElementById("popup-text").innerText = message;
       document.getElementById("popup").style.display = "block";
     }
@@ -123,6 +149,10 @@ website tra cứu về phác đồ điều trị ung thư
         popup.style.display = "none";
       }
     }
+  </script>
+</body>
+</html>
+
   </script>
 </body>
 </html>
