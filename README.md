@@ -80,20 +80,16 @@ website tra cứu về phác đồ điều trị ung thư
     <tr>
       <th>Tên phác đồ</th>
       <th>Thành phần</th>
+      <th>Điều trị ung thư</th>
       <th>Nguy cơ giảm bạch cầu</th>
       <th>Nguy cơ nôn</th>
     </tr>
     <tr>
       <td>AC</td>
       <td>Doxorubicin + Cyclophosphamide</td>
+      <td>Ung thư vú</td>
       <td onclick="showPopup('neutro','Trung bình')">Trung bình</td>
       <td onclick="showPopup('nausea','Cao')">Cao</td>
-    </tr>
-    <tr>
-      <td>Phác đồ X</td>
-      <td>Thuốc A + Thuốc B</td>
-      <td onclick="showPopup('neutro','Cao')">Cao</td>
-      <td onclick="showPopup('nausea','Thấp')">Thấp</td>
     </tr>
   </table>
 
