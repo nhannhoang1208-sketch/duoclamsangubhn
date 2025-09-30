@@ -91,6 +91,20 @@ website tra cứu về phác đồ điều trị ung thư
       <td onclick="showPopup('neutro','Trung bình')">Trung bình</td>
       <td onclick="showPopup('nausea','Cao')">Cao</td>
     </tr>
+    <tr>
+      <td>FOLFOX</td>
+      <td>Oxaliplatin + Leucovorin + 5-FU</td>
+      <td>Ung thư đại trực tràng</td>
+      <td onclick="showPopup('neutro','Trung bình')">Trung bình</td>
+      <td onclick="showPopup('nausea','Trung bình')">Trung bình</td>
+    </tr>
+    <tr>
+      <td>CHOP</td>
+      <td>Cyclophosphamide + Doxorubicin + Vincristine + Prednisone</td>
+      <td>Lymphoma không Hodgkin</td>
+      <td onclick="showPopup('neutro','Cao')">Cao</td>
+      <td onclick="showPopup('nausea','Trung bình')">Trung bình</td>
+    </tr>
   </table>
 
   <!-- Popup -->
@@ -149,6 +163,4 @@ website tra cứu về phác đồ điều trị ung thư
 </body>
 </html>
 
-  </script>
-</body>
 </html>
